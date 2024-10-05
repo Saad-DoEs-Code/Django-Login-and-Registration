@@ -1,0 +1,21 @@
+{% extends 'auth_app/base.html' %}
+{% block body_block %}
+
+
+    {% if is_registered %}
+        <h2>Thank You for Registering!!!</h2>
+    {% else %}
+    <h2>Fill Out the Form to Register</h2>
+    <form enctype="multipart/form-data" method="POST">
+
+        {% csrf_token %}
+        
+        {{user_form.as_p}}
+        {{user_profile_form.as_p}}
+        <input type="submit" value="Register">
+        
+    </form>
+        {% endif %}
+
+{% endblock body_block %}
+
